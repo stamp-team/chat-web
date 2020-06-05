@@ -1,0 +1,25 @@
+{
+	"presets": [
+		[
+			"next/babel",
+			{
+				"preset-env": {
+					"targets": {
+						"esmodules": true
+					},
+					"loose": false
+				}
+			}
+		]
+	],
+	"plugins": [
+		[
+			"styled-components",
+			{
+				"ssr": true,
+				"displayName": true,
+				"preprocess": false
+			}
+		]
+	]
+}

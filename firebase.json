@@ -1,0 +1,45 @@
+{
+	"firestore": {
+		"rules": "firestore.rules"
+	},
+	"functions": {
+		"source": ".",
+		"predeploy": [
+			"npm run lint",
+			"npm run build"
+		]
+	},
+	"hosting": {
+		"public": "dist/public",
+		"rewrites": [
+			{
+				"source": "**/**",
+				"function": "hosting"
+			}
+		],
+		"ignore": [
+			"firebase.json",
+			"**/.*",
+			"**/node_modules/**"
+		],
+		"predeploy": "npm run build-public"
+	},
+	"emulators": {
+		"firestore": {
+			"port": "8080"
+		},
+		"functions": {
+			"port": "5001"
+		},
+		"database": {
+			"port": "9000"
+		},
+		"hosting": {
+			"port": "5000"
+		},
+		"ui": {
+			"enabled": true,
+			"port": "4000"
+		}
+	}
+}
